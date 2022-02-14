@@ -1,20 +1,14 @@
-import React, { useEffect, useRef, useMemo, useState, Fragment } from "react";
+import React, { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import {
-  StyleProp,
-  Text,
-  View,
-  ViewStyle,
-  Animated,
-  StyleSheet,
-  TextStyle,
-  Easing,
+  Animated, Easing, StyleProp, StyleSheet, Text, TextStyle, View,
+  ViewStyle
 } from "react-native";
-
-import { Svg, Path } from "react-native-svg";
-import { Square } from "./packages/shape";
-import { Arc, ArcParams, ViewBox } from "./packages/svg";
+import { Path, Svg } from "react-native-svg";
 import { sum } from "./packages/array";
 import { LinearInterpolation } from "./packages/math";
+import { Square } from "./packages/shape";
+import { Arc, ArcParams, ViewBox } from "./packages/svg";
+
 
 export type DonutItem = {
   name: string;
@@ -314,11 +308,14 @@ export const DonutChart = ({
           })}
         </Svg>
         <Animated.View style={_getLabelWrapperStyle()}>
+        <Text style={_getLabelTitleStyle(displayValue?.color)}>
+            {displayValue?.name}
+          </Text>
           <Text style={_getLabelValueStyle(displayValue?.color)}>
-            {displayValue?.value}
+            {displayValue?.amount}
           </Text>
           <Text style={_getLabelTitleStyle(displayValue?.color)}>
-            {displayValue?.name}
+            {displayValue?.percentage}
           </Text>
         </Animated.View>
       </View>
