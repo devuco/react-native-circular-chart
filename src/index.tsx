@@ -260,9 +260,8 @@ export const DonutChart = ({
     labelValueStyle,
   ];
 
-  const _getLabelTitleStyle = (color: string): StyleProp<TextStyle> => [
+  const _getLabelTitleStyle = (): StyleProp<TextStyle> => [
     styles.defaultLabelTitle,
-    { color },
     labelTitleStyle,
   ];
 
@@ -308,13 +307,13 @@ export const DonutChart = ({
           })}
         </Svg>
         <Animated.View style={_getLabelWrapperStyle()}>
-        <Text style={_getLabelTitleStyle(displayValue?.color)}>
+        <Text style={_getLabelTitleStyle()}>
             {displayValue?.name}
           </Text>
           <Text style={_getLabelValueStyle(displayValue?.color)}>
             {displayValue?.amount}
           </Text>
-          <Text style={_getLabelTitleStyle(displayValue?.color)}>
+          <Text style={_getLabelTitleStyle()}>
             {displayValue?.percentage}
           </Text>
         </Animated.View>
